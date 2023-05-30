@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "pages#index"
   resources :dogs do
-    resources :bookings, only: %i[create index]
+    resources :bookings, only: %i[create]
   end
 
-  resources :bookings, only: %i[destroy update]
+  resources :bookings, only: %i[destroy update index]
 end
