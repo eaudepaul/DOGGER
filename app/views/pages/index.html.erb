@@ -1,3 +1,9 @@
 <%= render 'layouts/navbar' %>
-<h1>WHAT UPPPPPP</h1>
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGFwcHklMjBkb2d8ZW58MHx8MHx8fDA%3D&w=1000&q=80);">
+  <div class="container-fluid">
+    <h1>Welcome to Dogger!</h1>
+    <p>Happy Dogs looking for happy temporary homes!</p>
+    <%= link_to "Join Us", new_user_registration_path, class: "btn btn-flat" %>
+    <%= link_to "Browse all dogs", dogs_path, class: "btn btn-flat"%>
+  </div>
+</div>
