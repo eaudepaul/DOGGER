@@ -1,0 +1,17 @@
+<h1>Here are your dogs</h1>
+
+<div class="container">
+list of dogs here
+<% @dogs.each do |dog|%>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%= dog.photo_url %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to dog.name, dog_path(dog.id) %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= dog.breed %></li>
+    <li class="list-group-item"><%= dog.age %></li>
+  </ul>
+</div>
+<% end %>
+</div>
