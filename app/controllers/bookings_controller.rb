@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(params[:id])
-    @dog = Dog.find(params[:dog_id])
     @booking.dog = @dog
     @booking.user = current_user
     if @booking.save!
