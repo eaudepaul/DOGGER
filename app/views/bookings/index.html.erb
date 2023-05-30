@@ -3,7 +3,6 @@
 <div class="container">
   <div class="card">
     <% @bookings.each do |booking| %>
-      <img src="<%= booking.dog.photo_url %>" alt="">
       <p><strong>Start date: </strong><%= booking.start_date %></p>
       <p><strong>End date: </strong><%= booking.end_date %></p>
       <p><strong>Booking status: </strong><%= booking.status %></p>
