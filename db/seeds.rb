@@ -1,6 +1,7 @@
 puts "Deleting users and dogs..."
 
 User.destroy_all
+Booking.destoy_all
 Dog.destroy_all
 
 puts "creating one user and their dogs..."
