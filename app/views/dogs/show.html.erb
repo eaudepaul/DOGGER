@@ -2,11 +2,17 @@
 
 <div class="container" >
 
-<img class="card-img-top" src="<%= @dog.photo_url %>" alt="Card image cap">
-<h3><%= @dog.breed %></h3>
-<h5><%= @dog.age %></h5>
+  <img class="card-img-top" src="<%= @dog.photo_url %>" alt="Card image cap">
+  <h3><%= @dog.breed %></h3>
+  <h5><%= @dog.age %></h5>
 
-<%= link_to "Remove dog from platform",
-  dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+  <%= link_to "Remove dog from platform",
+    dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+
+  <%= simple_form_for [@dog, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
 </div>
