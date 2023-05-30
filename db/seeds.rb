@@ -3,8 +3,6 @@ puts "Deleting users and dogs..."
 User.destroy_all
 Dog.destroy_all
 
-
-
 puts "creating one user and their dogs..."
 paul = User.create(email: 'paul@example.com', password: "1234567")
 Dog.create(name: "Emma", breed: "Golden Retriever", age: 13, photo_url: "https://res.cloudinary.com/di0qqolg7/image/upload/v1685438154/IMG_0884_nhlvtg.jpg", user_id: paul.id)
