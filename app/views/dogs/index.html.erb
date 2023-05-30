@@ -1,17 +1,22 @@
-<h1>Here are your dogs</h1>
+<%= render 'layouts/navbar' %>
+<div class="banner-product" style="height: 200px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1526392587392-d1627b6c134a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlZW4lMjBncmFzc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80);">
+  <h3 class="text-center">All the Dogs looking for temporary homes</h3>
+</div>
 
 <div class="container">
-list of dogs here
-<% @dogs.each do |dog|%>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="<%= dog.photo_url %>" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title"><%= link_to dog.name, dog_path(dog.id) %></h5>
+  <div class="row">
+    <% @dogs.each do |dog|%>
+      <div class="cards col-4 justify-conent-between border border-secondary border-rounded" style="">
+        <div class="">
+          <div style="background-color; ">
+            <img class="card-img-top" src="<%= dog.photo_url %>" alt="Card image cap" width: 50px, height: 50px>
+            <div class="card-body">
+                <h5 class="card-title">Meet <%= dog.name %> </h5>
+                <p class="card-text">Hi I'm a <%= dog.breed %> and I'm <%= dog.age %> years old. </p>
+                <%= link_to dog.name, dog_path(dog.id), class: "btn btn-flat"%>
+            </div>
+        </div>
+      </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= dog.breed %></li>
-    <li class="list-group-item"><%= dog.age %></li>
-  </ul>
-</div>
-<% end %>
+  <% end %>
 </div>

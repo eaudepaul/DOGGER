@@ -8,11 +8,15 @@ class DogsController < ApplicationController
   end
 
   def create
-    dog = Dog.create(dog_params)
-    redirect_to dog_path(dog)
+    @dog = Dog.new(dog_params)
+    user = current_user
+    @dog.user_id = user.id
+    if @dog.save
+      redirect_to dog_path(@dog)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
-
-  # delete me after
 
   def destroy
     dog = Dog.find(params[:id])
@@ -28,6 +32,7 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @booking = Booking.new
   end
 
   def edit
@@ -37,6 +42,6 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed, :description, :photo)
+    params.require(:dog).permit(:name, :age, :breed, :photo_url)
   end
 end

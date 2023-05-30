@@ -20,6 +20,21 @@
   }
 
   .banner h3 {
-    color: crimson;
-    text-shadow: 1px 1px 3px;
+    color: white;
+    text-shadow: 1px 1px 1px;
+    align-content: center;
+  }
+  .banner-product {
+    background-size: 500px;
+    background-position: center;
+    padding: 150px 0;
+  }
+
+  .banner-product h3 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+    justify-content: center;
   }
