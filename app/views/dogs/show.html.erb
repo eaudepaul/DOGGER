@@ -1,0 +1,12 @@
+<h2><%= @dog.name %></h2>
+
+<div class="container" >
+
+<img class="card-img-top" src="<%= @dog.photo_url %>" alt="Card image cap">
+<h3><%= @dog.breed %></h3>
+<h5><%= @dog.age %></h5>
+
+<%= link_to "Remove dog from platform",
+  dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+</div>
