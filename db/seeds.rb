@@ -3,7 +3,6 @@ puts "Deleting users and dogs..."
 User.destroy_all
 Dog.destroy_all
 
-
 paul = User.create(email: 'paul@example.com', password: "1234567")
 
 puts "creating one user and their dogs..."
