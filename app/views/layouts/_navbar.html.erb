@@ -11,24 +11,31 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+
+        <% if user_signed_in? %>
           <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
+            <%= link_to "Home", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
+            <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="bookings">Bookings</a>
+            <%= link_to "Bookings", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item-dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1681716288/xfxmamv691jllqmty4t6.jpg" >
+          <li class="nav-item dropdown">
+            <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1681716288/xfxmamv691jllqmty4t6.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="/dogs/new">Add a dog</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="/users/sign_out">Log out</a>
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Add a dog", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
           </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
       </ul>
     </div>
   </div>
