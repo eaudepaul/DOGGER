@@ -11,6 +11,10 @@
 @import "components/index";
 @import "pages/index";
 
-.margin-top {
-  margin-top: 128.9px;
+$navbar-height: 128.5px;
+$footer-height: 363.7px;
+
+.main-content {
+  margin-top: $navbar-height;
+  min-height: calc(100vh - 128.5px - 363.7px);
 }
