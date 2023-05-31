@@ -1,8 +1,9 @@
 puts "Deleting users and dogs..."
 
+Booking.destroy_all
 Dog.destroy_all
 User.destroy_all
-Booking.destroy_all
+
 
 puts "Creating user..."
 paul = User.create(email: 'paul@example.com', password: "1234567")

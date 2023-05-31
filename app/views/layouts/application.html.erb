@@ -13,18 +13,14 @@
   <body>
   <%= render "layouts/navbar" %>
 
-  <% if current_page?(:controller => "pages", :action => "index") %>
+  <% if current_page?('/') %>
     <%= yield %>
   <% else %>
-   <div class="container">
-    <%= yield %>
-  </div>
+    <div class="container main-content">
+      <%= yield %>
+    </div>
+    <%= render "devise/shared/flashes" %>
   <% end %>
-
-  <div class="container main-content">
-    <%= yield %>
-  </div>
-  <%= render "devise/shared/flashes" %>
 
   <%= render "layouts/footer" %>
   </body>
