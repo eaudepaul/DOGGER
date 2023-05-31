@@ -3,8 +3,11 @@
   <div class="container-fluid">
     <h1>Welcome to Dogger!</h1>
     <p>Happy Dogs looking for happy temporary homes!</p>
-    <%= link_to "Join Us", new_user_registration_path, class: "btn btn-flat" %>
+    <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Logout?"},class: "btn btn-flat" %>
+    <% else %>
+      <%= link_to "Join Us", new_user_registration_path, class: "btn btn-flat" %>
+    <% end %>
     <%= link_to "Browse all dogs", dogs_path, class: "btn btn-flat"%>
   </div>
 </div>
-
