@@ -1,7 +1,13 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgb(159, 159, 159);
+    transition: .3s;
+  }
 }
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;
