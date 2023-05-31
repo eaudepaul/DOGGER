@@ -12,6 +12,7 @@
 
   <body>
   <%= render "layouts/navbar" %>
+
   <% if current_page?(:controller => "pages", :action => "index") %>
     <%= yield %>
   <% else %>
@@ -19,6 +20,12 @@
     <%= yield %>
   </div>
   <% end %>
+
+  <div class="container main-content">
+    <%= yield %>
+  </div>
+  <%= render "devise/shared/flashes" %>
+
   <%= render "layouts/footer" %>
   </body>
 </html>
