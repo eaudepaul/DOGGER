@@ -10,3 +10,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+$navbar-height: 128.5px;
+$footer-height: 363.7px;
+
+.main-content {
+  margin-top: $navbar-height;
+  min-height: calc(100vh - 128.5px - 363.7px);
+}
