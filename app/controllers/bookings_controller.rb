@@ -18,11 +18,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = @booking.update(booking_params)
-    if @booking.save
-      redirect_to dog_path(@dog)
+    @booking.update(booking_params)
+    if @booking.update!
+      redirect_to bookings_path
     else
-      render :edit, status: :unprocessable_entity
+      render status: :unprocessable_entity
     end
   end
 
@@ -42,6 +42,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :dog_id)
+    params.require(:booking).permit(:start_date, :end_date, :dog_id, :status)
   end
 end
