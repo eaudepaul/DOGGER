@@ -1,12 +1,61 @@
+<h2>Incoming bookings</h2>
+<%# filter for bookings where current_user id = dog.user_id %>
+<% filtered_bookings = @bookings.select { |booking| booking.dog.user_id == current_user.id } %>
+<%# then iterate as below %>
 
-<h1>All my bookings</h1>
-<div class="container">
-  <div class="card">
-    <% @bookings.each do |booking| %>
-      <p><strong>Start date: </strong><%= booking.start_date %></p>
-      <p><strong>End date: </strong><%= booking.end_date %></p>
-      <p><strong>Booking status: </strong><%= booking.status %></p>
-    <% end %>
+<div class="booking-cards container">
+  <div class="row justify-content-between w-100">
+    <% filtered_bookings.each do |booking| %>
+    <div class="col-6 p-0">
+      <div class="card-booking d-flex align-items-center m-2 p-0">
+        <img src="<%= booking.dog.photo_url %>" alt="<%= booking.dog.name %> the dog">
+        <div class="booking-info w-100">
+          <h3><%= booking.dog.name %> the <%= booking.dog.breed %></h3>
+          <div class="booking-details-container d-flex justify-content-between">
+            <div class="booking-details">
+              <p><strong>Start date: </strong><%= booking.start_date %></p>
+              <p><strong>End date: </strong><%= booking.end_date %></p>
+              <p><strong>Booking status: </strong><%= booking.status %></p>
+            </div>
+            <div class="accept-deny-form">
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, :collection => %w[accepted denied], include_blank: "Select an option", label: "Approve or deny request" %>
+                <%= f.submit class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+  <% end %>
   </div>
 </div>
 
+<br>
+<br>
+<br>
+
+<h2>Sent bookings</h2>
+<% filtered_bookings_sent = @bookings.select { |booking| booking.user_id == current_user.id } %>
+<%# the iterate as below %>
+<div class="booking-cards container mb-5">
+  <div class="row justify-content-between w-100">
+    <% filtered_bookings.each do |booking| %>
+    <div class="col-6 p-0">
+      <div class="card-booking d-flex align-items-center m-2 p-0">
+        <img src="<%= booking.dog.photo_url %>" alt="<%= booking.dog.name %> the dog">
+        <div class="booking-info w-100">
+          <h3><%= booking.dog.name %> the <%= booking.dog.breed %></h3>
+          <div class="booking-details-container d-flex justify-content-between">
+            <div class="booking-details">
+              <p><strong>Start date: </strong><%= booking.start_date %></p>
+              <p><strong>End date: </strong><%= booking.end_date %></p>
+              <p><strong>Booking status: </strong><%= booking.status %></p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+  <% end %>
+  </div>
+</div>
