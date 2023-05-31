@@ -40,7 +40,7 @@
 <%# the iterate as below %>
 <div class="booking-cards container mb-5">
   <div class="row justify-content-between w-100">
-    <% filtered_bookings.each do |booking| %>
+    <% filtered_bookings_sent.each do |booking| %>
     <div class="col-6 p-0">
       <div class="card-booking d-flex align-items-center m-2 p-0">
         <img src="<%= booking.dog.photo_url %>" alt="<%= booking.dog.name %> the dog">
