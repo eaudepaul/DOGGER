@@ -5,18 +5,24 @@
 <div class="container">
   <div class="row">
     <% @dogs.each do |dog|%>
-      <div class="cards col-4 justify-conent-between border border-secondary border-rounded" style="">
+      <div class="card-product col-3 justify-content-between m-1" style="">
         <div class="">
-          <div style="background-color; ">
-            <img class="card-img-top" src="<%= dog.photo_url %>" alt="Card image cap" width: 50px, height: 50px>
-            <div class="card-body">
+        <% if  dog.photo.attached? %>
+        <%= cl_image_tag dog.photo.key %>
+        <% else %>
+       <%= image_tag ["Henry.jpg","Puppy1.jpg", "Puppy2.jpg", "Puppy3.jpg", "Puppy4.jpg", "Puppy5.jpg","Puppy6.jpg","Puppy7.jpg", "Puppy8.jpg", "Puppy9.jpg", "Puppy10.jpg"].sample, width: 400, height: 200 %>
+        <% end %>
+            
+              <div class="card-body">
                 <h5 class="card-title">Meet <%= dog.name %> </h5>
                 <p class="card-text">Hi I'm a <%= dog.breed %> and I'm <%= dog.age %> years old. </p>
                 <%= link_to dog.name, dog_path(dog.id), class: "btn btn-flat"%>
-            </div>
+              </div>
+          </div>
         </div>
-      </div>
+    <% end %>
   </div>
   <% end %>
   <a class=" btn btn-primary" href="/dogs/new">Add a dog</a>
 </div>
+
