@@ -1,7 +1,7 @@
 <div class=" fixed-top navbar navbar-expand-sm navbar-light navbar-lewagon navbar">
   <div class="container-fluid">
     <a href="/">
-      <%= image_tag "DOGGER.png", width: 100 %>
+      <%= image_tag "DOGGER.png", width: 150, class: "py-3"%>
 </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,15 +17,12 @@
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "/", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Bookings", "/bookings", class: "nav-link" %>
+            <%= link_to "Add a dog", "/dogs/new", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1681716288/xfxmamv691jllqmty4t6.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Add a dog", "dogs/new", class: "dropdown-item" %>
+              <%= link_to "My Bookings", "/bookings", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
