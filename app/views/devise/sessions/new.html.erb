@@ -1,4 +1,11 @@
-<h2>Log in</h2>
+<section class="container vh-100 mb-10 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -13,8 +20,16 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class: "btn btn-outline-light btn-lg sign-up-button" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
