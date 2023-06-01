@@ -12,33 +12,31 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 </div>
-<%# 
-<div class="custom-control custom-checkbox">
-  <input type="checkbox" class="custom-control-input" id="customCheckDisabled1" disabled>
-  <label class="custom-control-label" for="customCheckDisabled1">See my dogs</label>
-</div> %>
+<div data-controller="checkbox">
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="form-check-input" data-action="click->checkbox#fire">
+  <label for="vehicle1">Show only my dogs</label>
+  <br>
+  <div class="container">
+    <div class="row">
+      <% @dogs.each do |dog|%>
+        <div class="card-product col-3 justify-content-between m-2" data-mine="<%= dog.user == current_user %>" data-checkbox-target="dog" style="">
+          <div class="e">
+            <% if  dog.photo.attached? %>
+              <%= cl_image_tag dog.photo.key %>
+            <% else %>
+                <%= image_tag ["Puppy1.jpg", "Puppy2.jpg", "Puppy3.jpg", "Puppy4.jpg", "Puppy5.jpg","Puppy6.jpg","Puppy7.jpg", "Puppy8.  jpg", "Puppy9.jpg", "Puppy10.jpg"].sample, width: 400, height: 200 %>
+            <% end %>
 
-<div class="container">
-  <div class="row">
-    <% @dogs.each do |dog|%>
-      <div class="card-product col-3 justify-content-between m-2" style="">
-        <div class="e">
-          <% if  dog.photo.attached? %>
-            <%= cl_image_tag dog.photo.key %>
-          <% else %>
-              <%= image_tag ["Puppy1.jpg", "Puppy2.jpg", "Puppy3.jpg", "Puppy4.jpg", "Puppy5.jpg","Puppy6.jpg","Puppy7.jpg", "Puppy8.jpg", "Puppy9.jpg", "Puppy10.jpg"].sample, width: 400, height: 200 %>
-          <% end %>
-
-          <div class="card-body">
-            <h5 class="card-title">Meet <%= dog.name %> </h5>
-            <p class="card-text">Hi I'm a <%= dog.breed %> and I'm <%= dog.age %> years old. </p>
-            <%= link_to dog.name, dog_path(dog.id), class: "btn btn-flat"%>
+            <div class="card-body">
+              <h5 class="card-title">Meet <%= dog.name %> </h5>
+              <p class="card-text">Hi I'm a <%= dog.breed %> and I'm <%= dog.age %> years old. </p>
+              <%= link_to dog.name, dog_path(dog.id), class: "btn btn-flat"%>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-
+      <% end %>
+    </div>
+</div>
   <a class=" btn btn-primary" href="/dogs/new">Add a dog</a>
 </div>
 
