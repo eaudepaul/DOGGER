@@ -1,6 +1,9 @@
-
 <div class="dog-show-page d-flex ">
-  <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill, data: { target: "#carouselDogGallery", slide_to: "0" } %>
+  <% if @dog.photo.attached? %>
+    <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill, data: { target: "#carouselDogGallery", slide_to: "0" } %>
+  <% else %>
+    <%= cl_image_tag("dog_yxjo1u", width: 300, height: 400) %>
+  <% end %>
   <div class="dog-profile d-flex container" >
     <div class="dog-wrapper">
       <div class="row dog-info">
