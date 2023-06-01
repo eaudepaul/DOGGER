@@ -1,13 +1,15 @@
 // DOG CARDS
 .card-product {
     overflow: hidden;
-    height: 350px;
-    background: rgb(211, 150, 150);
+    height: 380px;
+    background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0px;
     border-radius: 10px;
+    margin: 20px;
   }
 
   .card-product img {
@@ -15,10 +17,23 @@
     width: 180px;
     object-fit: cover;
     padding: 0px 16px;
+    border-radius: 50px;
+  }
+
+  .card-product:hover {
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    background: #85afc6;
   }
 
   .card-body {
     padding: 0px 16px;
+  }
+
+  .card-body h5 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5;
   }
 
 // BOOKING CARDS
