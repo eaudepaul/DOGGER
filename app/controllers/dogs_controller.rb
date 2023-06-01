@@ -18,8 +18,6 @@ class DogsController < ApplicationController
           lng: dog.longitude
         }
       end
-    @my_dogs = @dogs.select { |dog| dog.user_id == current_user.id }
-    @not_my_dogs = @dogs.reject { |dog| dog.user_id == current_user.id }
   end
 
   def new
