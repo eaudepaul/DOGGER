@@ -1,0 +1,10 @@
+<%= simple_form_for @dog do |f| %>
+<%= f.input :name, placeholder: "Fluffy" %>
+<%= f.input :breed %>
+<%= f.input :details %>
+<%= f.input :cuddliness %>
+<%= f.input :address %>
+<%= f.input :age %>
+<%= f.input :photo_url %>
+<%= f.submit "Add your dog!", class: "btn btn-primary" %>
+<% end %>

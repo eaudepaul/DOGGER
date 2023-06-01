@@ -20,7 +20,7 @@ def create_dog(url, dog)
   return dog
 end
 
-dog = Dog.new(name: "Emma", breed: "Golden Retriever", age: 13, user_id: paul.id, address: "Taubenstraße 30, 10117 Berlin", cuddliness: rand(1..5), details: Faker::Movies::StarWars.quote)
+dog = Dog.new(name: "Emma", breed: "Golden Retriever", age: 13, user_id: antonio.id, address: "Taubenstraße 30, 10117 Berlin", cuddliness: rand(1..5), details: Faker::Movies::StarWars.quote)
 dog = create_dog("https://res.cloudinary.com/dbak464dw/image/upload/v1685612409/l4v4npefec2fevbqgtqk.jpg", dog)
 dog.save
 

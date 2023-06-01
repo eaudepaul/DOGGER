@@ -12,45 +12,46 @@
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
 </div>
-<%# 
-<div class="custom-control custom-checkbox">
-  <input type="checkbox" class="custom-control-input" id="customCheckDisabled1" disabled>
-  <label class="custom-control-label" for="customCheckDisabled1">See my dogs</label>
-</div> %>
 
-<div class="dog-container">
-  <div class="dogs">
-    <% @dogs.each do |dog|%>
-      <div class="card-product justify-content-between m-2" style="">
-        <div class="e">
-          <% if  dog.photo.attached? %>
-            <%= cl_image_tag dog.photo.key %>
-          <% else %>
-              <%= image_tag ["Puppy1.jpg", "Puppy2.jpg", "Puppy3.jpg", "Puppy4.jpg", "Puppy5.jpg","Puppy6.jpg","Puppy7.jpg", "Puppy8.jpg", "Puppy9.jpg", "Puppy10.jpg"].sample %>
-          <% end %>
-
-          <div class="card-body">
-            <h5 class="card-title"> <%= dog.name %> </h5>
-            <p class="dog-info"> Breed: <%= dog.breed %> </p>
-            <p>Age: <%= dog.age %></p>   
-            
-            <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
-            <i class="fa-solid fa-paw"></i>           
+<div data-controller="checkbox">
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="form-check-input" data-action="click->checkbox#fire">
+  <label for="vehicle1">Show only my dogs</label>
+  <br>                      
+  <div class="dog-container">
+    <div class="dogs">
+      <% @dogs.each do |dog|%>
+        <div class="card-product justify-content-between m-2" data-mine="<%= dog.user == current_user %>" data-checkbox-target="dog" style="">
+          <div class="e">
+            <% if  dog.photo.attached? %>
+              <%= cl_image_tag dog.photo.key %>
+            <% else %>
+                <%= image_tag ["Puppy1.jpg", "Puppy2.jpg", "Puppy3.jpg", "Puppy4.jpg", "Puppy5.jpg","Puppy6.jpg","Puppy7.jpg", "Puppy8.jpg", "Puppy9.jpg", "Puppy10.jpg"].sample %>
             <% end %>
+
+            <div class="card-body">
+              <h5 class="card-title"> <%= dog.name %> </h5>
+              <p class="dog-info"> Breed: <%= dog.breed %> </p>
+              <p>Age: <%= dog.age %></p>   
+
+              <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
+              <i class="fa-solid fa-paw"></i>           
+              <% end %>
+            </div>
           </div>
         </div>
+      <% end %>
+    </div>
+    <div class="dog-map">
+      <div class="map-container"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-    <% end %>
-  </div>
-
-  <div class="dog-map">
-    <div class="map-container"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-</div>
+   </div>
+
 
 <a class=" btn btn-primary" href="/dogs/new">Add a dog</a>
+
 
