@@ -1,0 +1,15 @@
+<div class="new-dog-form container form-adjust py-5">
+  <div class="row form-bg">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-5 shadow">
+        <h1>Here you can update your dog's profile:</h1>
+        <%= render "form" %>
+<%# only if no bookings, needs fixing %>
+        <h1>Or remove it from the website:</h1>
+  <%= link_to "Remove dog from platform",
+    dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+      </div>
+    </div>
+  </div>
+</div>

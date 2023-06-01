@@ -16,7 +16,7 @@
 <div data-controller="checkbox">
   <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="form-check-input" data-action="click->checkbox#fire">
   <label for="vehicle1">Show only my dogs</label>
-  <br>                      
+  <br>
   <div class="dog-container">
     <div class="dogs">
       <% @dogs.each do |dog|%>
@@ -31,10 +31,10 @@
             <div class="card-body">
               <h5 class="card-title"> <%= dog.name %> </h5>
               <p class="dog-info"> Breed: <%= dog.breed %> </p>
-              <p>Age: <%= dog.age %></p>   
-
-              <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
-              <i class="fa-solid fa-paw"></i>           
+              <p>Age: <%= dog.age %></p>
+              <% path = dog.user == current_user ? edit_dog_path(dog.id) : dog_path(dog.id) %>
+              <%= link_to path, class: "btn btn-flat" do %>
+              <i class="<%= dog.user == current_user ? 'fa-solid fa-dog' : 'fa-solid fa-paw' %>"></i></i>
               <% end %>
             </div>
           </div>
@@ -53,5 +53,3 @@
 
 
 <a class=" btn btn-primary" href="/dogs/new">Add a dog</a>
-
-
