@@ -1,5 +1,7 @@
 class DogsController < ApplicationController
   def index
+    # Not sure if line below is needed, delete it if not
+#     @dogs = Dog.where.not(user_id: current_user.id)
     if params[:query].present?
       sql_query = <<~SQL
         dogs.name @@ :query
@@ -20,7 +22,6 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     user = current_user
     @dog.user_id = user.id
-
     if @dog.save
       redirect_to dog_path(@dog)
     else

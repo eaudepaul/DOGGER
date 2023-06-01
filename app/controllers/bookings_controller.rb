@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[update destroy]
-  before_action :set_dog, only: %i[create update]
+  before_action :set_dog, only: %i[create]
 
   def index
-    @bookings = Booking.all
+    @bookings_made = Booking.where(user_id: current_user.id)
+    @bookings_for_my_dogs = Booking.select { |booking| booking.dog.user_id == current_user.id }
   end
 
   def create
@@ -18,8 +19,7 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(booking_params)
-    if @booking.update!
+    if @booking.update(booking_params)
       redirect_to bookings_path
     else
       render status: :unprocessable_entity
