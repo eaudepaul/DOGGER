@@ -4,12 +4,12 @@ Booking.destroy_all
 Dog.destroy_all
 User.destroy_all
 
-
 puts "Creating user..."
 paul = User.create(email: 'paul@example.com', password: "1234567")
 antonio = User.create(email: 'antonio@example.com', password: "1234567")
 
-puts "Creating booking..."
+puts "Creating bookings..."
+Booking.create(start_date: "2023-05-30", end_date: "2023-06-01", user_id: antonio.id, dog_id: 1)
 Booking.create(start_date: "2023-05-30", end_date: "2023-06-01", user_id: paul.id, dog_id: 1)
 
 puts "Creating dogs..."
