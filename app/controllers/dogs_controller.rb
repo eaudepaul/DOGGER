@@ -1,6 +1,15 @@
 class DogsController < ApplicationController
   def index
-    @dogs = Dog.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        dogs.name @@ :query
+        OR dogs.breed @@ :query
+        OR dogs.details @@ :query
+      SQL
+      @dogs = Dog.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @dogs = Dog.all
+    end
   end
 
   def new
@@ -11,7 +20,7 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     user = current_user
     @dog.user_id = user.id
-  
+
     if @dog.save
       redirect_to dog_path(@dog)
     else
