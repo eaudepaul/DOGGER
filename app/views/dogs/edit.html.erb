@@ -4,7 +4,7 @@
       <div class="bg-white rounded p-5 shadow">
         <h1>Here you can update your dog's profile:</h1>
         <%= render "form" %>
-<%# only if no bookings, needs fixing %>
+<%# only if no bookings, needs implementation %>
         <h1>Or remove it from the website:</h1>
   <%= link_to "Remove dog from platform",
     dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
