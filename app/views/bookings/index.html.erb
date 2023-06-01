@@ -4,7 +4,7 @@
     <% @bookings_for_my_dogs.each do |booking| %>
       <div class="col-6 p-0">
         <div class="card-booking d-flex align-items-center m-2 p-0">
-          <img src="<%= booking.dog.photo_url %>" alt="<%= booking.dog.name %> the dog">
+          <%= cl_image_tag booking.dog.photo.key %>
           <div class="booking-info w-100">
             <h3><%= booking.dog.name %> the <%= booking.dog.breed %></h3>
             <div class="booking-details-container d-flex justify-content-between">
@@ -43,7 +43,7 @@
     <% @bookings_made.each do |booking| %>
     <div class="col-6 p-0">
       <div class="card-booking d-flex align-items-center m-2 p-0">
-        <img src="<%= booking.dog.photo_url %>" alt="<%= booking.dog.name %> the dog">
+        <%= cl_image_tag booking.dog.photo.key %>
         <div class="booking-info w-100">
           <h3><%= booking.dog.name %> the <%= booking.dog.breed %></h3>
           <div class="booking-details-container d-flex justify-content-between">
