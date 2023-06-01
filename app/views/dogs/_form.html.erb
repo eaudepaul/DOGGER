@@ -1,6 +1,6 @@
 <%= simple_form_for @dog do |f| %>
 <%= f.input :name, placeholder: "Fluffy" %>
-<%= f.input :breed %>
+<%= f.input :breed, collection: [ "Mutt", "Afghan hound", "Airedale terrier", "Akita", "American Staffordshire terrier", "Australian shepherd", "Beagle", "Bloodhound", "Border collie", "Borzoi", "Boston terrier", "Boxer", "Bull terrier", "Bulldog", "Chihuahua", "Cocker spaniel", "Chow chow", "Dachshund", "Dalmatian", "German shepherd", "Golden retriever", "Greyhound", "Irish setter", "Lhasa apso", "Mexican hairless", "Pomeranian", "Rhodesian ridgeback", "Scottish terrier", "Vizsla", "Weimaraner", "Yorkshire terrier", "Whippet", "Other" ], include_blank: "Select an option" %>
 <%= f.input :details %>
 <%= f.input :cuddliness %>
 <%= f.input :address %>
