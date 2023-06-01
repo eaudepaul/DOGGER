@@ -1,7 +1,5 @@
 class DogsController < ApplicationController
   def index
-    # Not sure if line below is needed, delete it if not
-#     @dogs = Dog.where.not(user_id: current_user.id)
     if params[:query].present?
       sql_query = <<~SQL
         dogs.name @@ :query
@@ -9,21 +7,17 @@ class DogsController < ApplicationController
         OR dogs.details @@ :query
       SQL
       @dogs = Dog.where(sql_query, query: "%#{params[:query]}%")
-      @dogs = Dog.geocoded
-      @markers = @dogs.map do |dog|
-      {
-        lat: dog.latitude,
-        lng: dog.longitude
-      }
+      @dogs = @dogs.geocoded
     else
       @dogs = Dog.all
       @dogs = Dog.geocoded
-      @markers = @dogs.map do |dog|
-      {
-        lat: dog.latitude,
-        lng: dog.longitude
-      }
     end
+      @markers = @dogs.map do |dog|
+        {
+          lat: dog.latitude,
+          lng: dog.longitude
+        }
+      end
   end
 
   def new
