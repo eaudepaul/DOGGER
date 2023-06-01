@@ -1,6 +1,13 @@
 class DogsController < ApplicationController
   def index
     @dogs = Dog.all
+    @dogs = Dog.geocoded
+    @markers = @dogs.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude
+      }
+    end
   end
 
   def new
@@ -12,7 +19,7 @@ class DogsController < ApplicationController
     user = current_user
     @dog.user_id = user.id
   
-    if @dog.save
+    if @dog.save!
       redirect_to dog_path(@dog)
     else
       render :new, status: :unprocessable_entity
