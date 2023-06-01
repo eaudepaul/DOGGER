@@ -11,9 +11,5 @@
     dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
 
-  <%= simple_form_for [@dog, @booking] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
+  <%= render "bookings/booking-form" %>
 </div>
