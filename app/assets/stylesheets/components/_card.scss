@@ -1,4 +1,4 @@
-
+// DOG CARDS
 .card-product {
     overflow: hidden;
     height: 350px;
@@ -9,7 +9,7 @@
     padding: 0px;
     border-radius: 10px;
   }
-  
+
   .card-product img {
     height: 100%;
     width: 180px;
@@ -20,6 +20,8 @@
   .card-body {
     padding: 0px 16px;
   }
+
+// BOOKING CARDS
 .card-booking {
   overflow: hidden;
   background: white;
@@ -42,4 +44,3 @@
     justify-content: space-around;
   }
 }
-

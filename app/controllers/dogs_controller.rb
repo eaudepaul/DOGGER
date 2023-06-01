@@ -1,6 +1,17 @@
 class DogsController < ApplicationController
   def index
-    @dogs = Dog.where.not(user_id: current_user.id)
+    # Not sure if line below is needed, delete it if not
+#     @dogs = Dog.where.not(user_id: current_user.id)
+    if params[:query].present?
+      sql_query = <<~SQL
+        dogs.name @@ :query
+        OR dogs.breed @@ :query
+        OR dogs.details @@ :query
+      SQL
+      @dogs = Dog.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @dogs = Dog.all
+    end
   end
 
   def new
