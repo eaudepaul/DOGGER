@@ -14,10 +14,10 @@
 
 
 
-$navbar-height: 128.5px;
-$footer-height: 363.7px;
+$navbar-height: 72.25px;
+$footer-height: 339.7px;
 
 .main-content {
   margin-top: $navbar-height;
-  min-height: calc(100vh - 128.5px - 363.7px);
+  min-height: calc(100vh - 72.25px - 339.7px);
 }
