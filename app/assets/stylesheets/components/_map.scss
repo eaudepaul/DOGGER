@@ -1,0 +1,22 @@
+.dog-container {
+    display: flex;
+
+    .dogs {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        overflow: scroll;
+        height: 100vh;
+    }
+
+    .dog-map {
+        width: 50%;
+        position: sticky;
+        .map-container {
+            height: 100vh;
+            width: 100%;
+        }
+    }
+
+
+}
