@@ -1,15 +1,43 @@
 
-<h2><%= @dog.name %></h2>
-
-<div class="container" >
-
-  <img class="card-img-top" src="<%= @dog.photo_url %>" alt="Card image cap">
-  <h3><%= @dog.breed %></h3>
-  <h5><%= @dog.age %></h5>
-
-  <%= link_to "Remove dog from platform",
-    dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-
-  <%= render "bookings/booking-form" %>
+<div class="dog-show-page d-flex ">
+  <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill, data: { target: "#carouselDogGallery", slide_to: "0" } %>
+  <div class="dog-profile d-flex container" >
+    <div class="dog-wrapper">
+      <div class="row dog-info">
+        <div class="col-7">
+          <div class="d-flex align-items-center d-inline-block">
+            <h1><%= @dog.name %></h1>
+              <div class="edit-delete-buttons">
+                <%= link_to edit_dog_path(@dog.id) do %>
+                  <i class="fa-regular fa-pen-to-square"></i>
+                <% end %>
+                <%= link_to dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <i class="fa-regular fa-trash-can"></i>
+                <% end %>
+              </div>
+          </div>
+          <h4><%= @dog.breed %></h4>
+          <div class="age-and-cuddliness">
+            <% if @dog.age == 1 %>
+              <h5><strong>Age: </strong><%= @dog.age %> year old</h5>
+            <% else %>
+              <h5><strong>Age: </strong><%= @dog.age %> years old</h5>
+            <% end %>
+            <div class="cuddliness-hearts d-flex">
+              <h5><strong>Cuddliness: </strong></h5>
+              <% @dog.cuddliness.times do |heart| %>
+                <p><i class="fa-solid fa-heart"></i></p>
+              <% end %>
+            </div>
+          </div>
+          <p><%= @dog.details %></p>
+        </div>
+        <div class="col-5">
+          <div class="booking-form">
+            <%= render "bookings/booking-form" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
