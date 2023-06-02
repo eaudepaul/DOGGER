@@ -1,6 +1,6 @@
 .form-actions {
   margin-top: 20px;
-  text-align: left;
+  text-align: center;
   .btn {
     width: 15%;
     border: 1px solid black;
@@ -13,5 +13,17 @@
     border: 1px solid black;
     background-color: antiquewhite;
     color: black;
+  }
+}
+.form-inputs{
+
+  label{
+    float: left;
+  }
+}
+
+.card-body{
+  a {
+    color: white !important;
   }
 }
