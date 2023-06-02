@@ -2,7 +2,7 @@
 <%= f.input :name, placeholder: "Fluffy" %>
 <%= f.input :breed, collection: [ "Mutt", "Afghan hound", "Airedale terrier", "Akita", "American Staffordshire terrier", "Australian shepherd", "Beagle", "Bloodhound", "Border collie", "Borzoi", "Boston terrier", "Boxer", "Bull terrier", "Bulldog", "Chihuahua", "Cocker spaniel", "Chow chow", "Dachshund", "Dalmatian", "German shepherd", "Golden retriever", "Greyhound", "Irish setter", "Lhasa apso", "Mexican hairless", "Pomeranian", "Rhodesian ridgeback", "Scottish terrier", "Vizsla", "Weimaraner", "Yorkshire terrier", "Whippet", "Other" ], include_blank: "Select an option" %>
 <%= f.input :details %>
-<%= f.input :cuddliness %>
+<%= f.input :cuddliness as: :slider, min: 0, max: 5 %>
 <%= f.input :address %>
 <%= f.input :age %>
 <%= f.input :photo_url %>
