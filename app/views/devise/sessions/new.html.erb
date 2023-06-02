@@ -16,10 +16,10 @@
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions d-flex justify-content-between align-items-center">
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     <%= f.button :submit, "Log in", class: "btn btn-outline-light btn-lg sign-up-button" %>
   </div>
 <% end %>
