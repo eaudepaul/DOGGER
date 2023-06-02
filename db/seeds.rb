@@ -75,8 +75,9 @@ dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685712238/
 dog.save
 
 dog14 = Dog.new(name: "Zak", breed: "Akita", age: 1, user_id: baran.id, address: "Pallasstraße 9, 10781 Berlin", cuddliness: rand(1..5), details: "Youg Akita puppy Zak is new to the city. His mellow and friendly personality makes him not just a great companion, but also very adaptable to new surroundings and every changing sleeping arrangements. He is a great companion to anyone in need of some joy in their lives.")
-dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685712859/Japanese-Akitainu-puppy-playing-in-the-grass_b1io7y.jpg", dog13)
+dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685712859/Japanese-Akitainu-puppy-playing-in-the-grass_b1io7y.jpg", dog14)
 dog.save
+# useless comment
 
 puts "Creating bookings..."
 
