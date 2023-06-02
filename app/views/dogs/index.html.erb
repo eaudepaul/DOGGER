@@ -1,14 +1,15 @@
-<div class="banner-product" style="height: 200px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
-  <h3 class="text-center">All our dogs looking for temporary homes</h3>
-  <div style=width:30% padding=30px>
-    <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "What kind of dog are you looking for?"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+<div class="banner-product" style="height: 240px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
+  <div class="banner-heading-search d-flex flex-column">
+    <h3 class="text-center m-2">All our dogs looking for temporary homes</h3>
+    <div class="d-flex justify-content-center m-3">
+      <%= form_with url: dogs_path, method: :get, class: "search-form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "What kind of dog are you looking for?" %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -31,7 +32,7 @@
               <h5 class="card-title"> <strong><%= dog.name %></strong></h5>
               <h6 class="card-text"><i class="fa-solid fa-dog"></i><strong><%= dog.breed %></strong></h6>
           </div>
-            <ul class="card-body"> 
+            <ul class="card-body">
               <li class="list-group-item"><h6><strong>Age : <%= dog.age %></strong></h6></li>
               <li class="list-group-item"><div class="cuddliness-hearts d-flex">
             <div class="cuddliness-card d-flex">
