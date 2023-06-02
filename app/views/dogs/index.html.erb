@@ -32,9 +32,9 @@
               <h5 class="card-title"> <%= dog.name %> </h5>
               <p class="dog-info"> Breed: <%= dog.breed %> </p>
               <p>Age: <%= dog.age %></p>
-
-              <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
-              <i class="fa-solid fa-paw"></i>
+              <% path = dog.user == current_user ? edit_dog_path(dog.id) : dog_path(dog.id) %>
+              <%= link_to path, class: "btn btn-flat" do %>
+              <i class="<%= dog.user == current_user ? 'fa-solid fa-dog' : 'fa-solid fa-paw' %>"></i></i>
               <% end %>
             </div>
 

@@ -44,7 +44,7 @@ class DogsController < ApplicationController
   def update
     dog = Dog.find(params[:id])
     dog.update(dog_params)
-    redirect_to dog_path(dog)
+    redirect_to dogs_path
   end
 
   def show
