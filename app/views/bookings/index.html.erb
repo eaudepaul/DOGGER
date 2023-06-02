@@ -1,10 +1,10 @@
 <%  def booking_status_class(booking)
       if booking.status == "pending"
-      "bg-warning text-white p-1"
+      "bg-warning text-white p-1 rounded"
       elsif booking.status == "accepted"
-      "bg-success text-white p-1"
+      "bg-success text-white p-1 rounded"
       elsif booking.status == "denied"
-      "bg-danger text-white p-1"
+      "bg-danger text-white p-1 rounded"
       end
     end
 %>
