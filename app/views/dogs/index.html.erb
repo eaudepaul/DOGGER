@@ -22,10 +22,10 @@
       <% @dogs.each do |dog|%>
         <div class="card-product justify-content-between m-2" data-mine="<%= dog.user == current_user %>" data-checkbox-target="dog" style="">
           <div class="e">
-            <% if  dog.photo.attached? %>
+            <% if dog.photo.attached? %>
               <%= cl_image_tag dog.photo.key %>
             <% else %>
-                <%= image_tag ["Puppy1.jpg", "Puppy2.jpg", "Puppy3.jpg", "Puppy4.jpg", "Puppy5.jpg","Puppy6.jpg","Puppy7.jpg", "Puppy8.jpg", "Puppy9.jpg", "Puppy10.jpg"].sample %>
+              <%= cl_image_tag("dog_yxjo1u") %>
             <% end %>
 
             <div class="card-body">
@@ -37,10 +37,12 @@
               <i class="<%= dog.user == current_user ? 'fa-solid fa-dog' : 'fa-solid fa-paw' %>"></i></i>
               <% end %>
             </div>
+
           </div>
         </div>
       <% end %>
     </div>
+
     <div class="dog-map">
       <div class="map-container"
           data-controller="map"
@@ -49,7 +51,7 @@
       </div>
     </div>
   </div>
-   </div>
+</div>
 
 
 <a class=" btn btn-primary" href="/dogs/new">Add a dog</a>

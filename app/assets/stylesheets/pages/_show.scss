@@ -3,3 +3,42 @@
     height: 15vw;
     object-fit: cover;
 }
+
+.fa-dog {
+  font-size: 22px;
+  padding-right: 10px;
+}
+
+.fa-pen-to-square {
+  color: #6351CE;
+  &:hover {
+    color: #1C2331;
+    transition: .3s;
+  }
+}
+
+.cuddliness {
+  h5 {
+    padding-right: 10px;
+  }
+  .fa-heart {
+    letter-spacing: 3px;
+  }
+}
+
+.dog-wrapper {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+  border-radius: 3px;
+}
+
+.dog-profile-img {
+  height: 100%;
+  width: 300px;
+  object-fit: cover;
+}
+
+.dog-info {
+  padding: 48px;
+  width: 100%;
+}
