@@ -87,4 +87,4 @@ end
 
 gem "devise"
 gem 'simple_form_extension'
-gem "redactor-rails", github: "glyph-fr/redactor-rails"
+
