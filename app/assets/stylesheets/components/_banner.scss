@@ -33,6 +33,11 @@
     background-position: center;
     padding: 100px 0;
     background-color: #6351CE;
+    .search-form {
+      display: flex;
+      justify-content: center;
+      width: 30%;
+    }
   }
 
   .banner-product h3 {

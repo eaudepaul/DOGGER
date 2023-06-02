@@ -4,11 +4,12 @@
     background: white;
     box-shadow: 0 0 18px rgba(0,0,0,0.2);
     padding-bottom: 5;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 16px;
+    height: 398px;
     position: relative;
   }
-  
+
   .card-product-dog:hover {
     transform: scale(1);
     transition: all 0.3s ease-in-out;
@@ -37,13 +38,13 @@
     width: 100%;
   }
 
-  
+
   .cuddliness {
     h5 {
       padding-right: 10px;
     }
   }
-  
+
   .fa-heart {
     margin-left: 3px;
     letter-spacing: 3px;
