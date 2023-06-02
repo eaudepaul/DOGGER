@@ -42,7 +42,9 @@
       </div>
     </div>
   </div>
+  <% if @dog.user != current_user %>
     <div class="booking-form">
       <%= render "bookings/booking-form" %>
     </div>
+  <% end %>
 </div>

@@ -1,3 +1,14 @@
+<%  def booking_status_class(booking)
+      if booking.status == "pending"
+      "bg-warning text-white p-1 rounded"
+      elsif booking.status == "accepted"
+      "bg-success text-white p-1 rounded"
+      elsif booking.status == "denied"
+      "bg-danger text-white p-1 rounded"
+      end
+    end
+%>
+
 <div class="all-bookings">
   <h2>Bookings I've received</h2>
   <div class="booking-cards container">
@@ -16,7 +27,7 @@
                 <div class="booking-details">
                   <p><strong>Start date: </strong><%= booking.start_date %></p>
                   <p><strong>End date: </strong><%= booking.end_date %></p>
-                  <p><strong>Booking status: </strong><%= booking.status %></p>
+                  <p><strong>Booking status: </strong><span class="<%= booking_status_class(booking) %>"><%= booking.status %></span></p>
                 </div>
                 <div class="accept-deny-form">
                   <% if booking.status == 'pending' %>
@@ -31,7 +42,7 @@
                   <% elsif booking.status == 'accepted' %>
                   <%= simple_form_for booking, method: :put do |f| %>
                       <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" } %>
-                      <%= f.button :submit, '👎', class: "btn btn-danger" %>
+                      <%= f.button :submit, '👎', data: {turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
                     <% end %>
                   <% elsif booking.status == 'denied' %>
                     <%= link_to "❌",
@@ -66,7 +77,7 @@
             <div class="booking-details">
               <p><strong>Start date: </strong><%= booking.start_date %></p>
               <p><strong>End date: </strong><%= booking.end_date %></p>
-              <p><strong>Booking status: </strong><%= booking.status %></p>
+              <p><strong>Booking status: </strong><span class="<%= booking_status_class(booking) %>"><%= booking.status %></span></p>
             </div>
             <%= link_to "❌",
              booking_path(booking),

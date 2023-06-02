@@ -31,11 +31,11 @@
               <h5 class="card-title"> <strong><%= dog.name %></strong></h5>
               <h6 class="card-text"><i class="fa-solid fa-dog"></i><strong><%= dog.breed %></strong></h6>
           </div>
-          <ul class="card-body">
-            <li class="list-group-item"><h6><strong>Age : <%= dog.age %></strong></h6></li>
-            <li class="list-group-item"><div class="cuddliness-hearts d-flex">
+            <ul class="card-body">
+              <li class="list-group-item"><h6><strong>Age : <%= dog.age %></strong></h6></li>
+              <li class="list-group-item"><div class="cuddliness-hearts d-flex">
             <div class="cuddliness-card d-flex">
-              <h6><strong>Cuddliness </strong></h6>
+              <h6><strong>Cuddliness</strong></h6>
               <% dog.cuddliness.times do |heart| %>
                 <p><i class="fa-solid fa-heart"></i></p>
               <% end %>
