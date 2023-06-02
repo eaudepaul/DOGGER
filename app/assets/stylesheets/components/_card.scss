@@ -33,7 +33,7 @@
     padding: 0px 16px;
     flex-grow: 1;
     padding-right: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     width: 100%;
   }
 
@@ -41,12 +41,13 @@
   .cuddliness {
     h5 {
       padding-right: 10px;
-      .fa-heart {
-        letter-spacing: 3px;
-      }
     }
   }
   
+  .fa-heart {
+    margin-left: 3px;
+    letter-spacing: 3px;
+  }
 
   .card-text {
     font-size: 18px;
