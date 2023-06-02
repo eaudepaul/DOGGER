@@ -17,7 +17,8 @@ class DogsController < ApplicationController
       @markers = @dogs.map do |dog|
         {
           lat: dog.latitude,
-          lng: dog.longitude
+          lng: dog.longitude,
+          marker_html: render_to_string(partial: "marker")
         }
       end
   end
