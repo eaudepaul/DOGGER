@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to dog_path(@booking.dog), notice: "Booking successfully deleted."
+    redirect_to bookings_path, notice: "Booking successfully deleted."
   end
 
   private
