@@ -62,7 +62,7 @@ dog10 = Dog.new(name: "Pedro", breed: "Border Collie", age: 11, user_id: charlot
 dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685713571/dog_uawebn.jpg", dog10)
 dog.save
 
-dog11 = Dog.new(name: "Sebi", breed: "German Sheperd", age: , user_id: charlotte.id, address: "Alexandrinenstraße 119, 10969 Berlin", cuddliness: rand(1..5), details: "Sebi is smart and attentive. Enjoys playing by the river and going for long walks. His stubbornness can be a challenge, but he is very loyal and will always be by your side.")
+dog11 = Dog.new(name: "Sebi", breed: "German Sheperd", age: 4, user_id: charlotte.id, address: "Alexandrinenstraße 119, 10969 Berlin", cuddliness: rand(1..5), details: "Sebi is smart and attentive. Enjoys playing by the river and going for long walks. His stubbornness can be a challenge, but he is very loyal and will always be by your side.")
 dog = create_dog("https://res.cloudinary.com/dbak464dw/image/upload/v1685612378/zf8dlypqjjcrs6vicft0.jpg", dog11)
 dog.save
 
