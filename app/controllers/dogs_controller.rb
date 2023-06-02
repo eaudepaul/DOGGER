@@ -9,23 +9,18 @@ class DogsController < ApplicationController
         OR dogs.details @@ :query
       SQL
       @dogs = Dog.where(sql_query, query: "%#{params[:query]}%")
-      @markers = @dogs.geocoded.map do |dog|
-        {
-          lat: dog.latitude,
-          lng: dog.longitude,
-          marker_html: render_to_string(partial: "marker")
-        }
-      end
-      # @markers = @dogs.geocoded
+      @dogs = @dogs.geocoded
     else
       @dogs = Dog.all
-      @markers = @dogs.geocoded.map do |dog|
-        {
-          lat: dog.latitude,
-          lng: dog.longitude
-        }
-      # @dogs = Dog.geocoded
-      end
+      @dogs = Dog.geocoded
+    end
+    @markers = @dogs.geocoded.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { dog: dog }),
+        marker_html: render_to_string(partial: "marker")
+      }
     end
   end
 
