@@ -4,7 +4,7 @@
 <%= f.input :details %>
 <%= f.input :cuddliness %>
 <%= f.input :address %>
-<%= f.input :age %>
+<%= f.input :age, as: :string %>
 <%= f.input :photo, as: :file %>
 <%= f.submit class: "btn btn-primary" %>
 <%= link_to "Cancel", dog_path(@dog.id), class: "btn btn-secondary text-white mt-0"%>

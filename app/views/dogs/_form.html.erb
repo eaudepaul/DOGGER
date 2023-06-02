@@ -4,10 +4,7 @@
 <%= f.input :details %>
 <%= f.input :cuddliness, collection: [ 1, 2, 3, 4, 5] %>
 <%= f.input :address %>
-<%= f.input :age %>
+<%= f.input :age, as: :string %>
 <%= f.input :photo, as: :file %>
 <%= f.submit class: "btn btn-primary" %>
 <% end %>
-
-
-<%# delete later %>
