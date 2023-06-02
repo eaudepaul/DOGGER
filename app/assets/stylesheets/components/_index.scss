@@ -9,3 +9,18 @@
 @import "map";
 @import "form";
 
+.button {
+  color: #ffffff; /* Green */
+  border: none;
+  background-color: #6351CE;
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  padding: 15px 32px;
+  border-radius: 50px;
+  border-color: #1C2331;
+  box-shadow: 2px 2px 2px rgb(172, 169, 169);
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
