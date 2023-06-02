@@ -1,16 +1,15 @@
 <div class="banner-product" style="height: 200px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
-  <h3 class="text-center">All the Dogs looking for temporary homes</h3>
-</div>
-
-<div>
-  <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "What kind of dog are you looking for?"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+  <h3 class="text-center">All our dogs looking for temporary homes</h3>
+  <div style=width:30% padding=30px>
+    <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "What kind of dog are you looking for?"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 <div data-controller="checkbox">
@@ -33,7 +32,7 @@
               <h6 class="card-text"><i class="fa-solid fa-dog"></i><strong><%= dog.breed %></strong></h6>
           </div>
             <ul class="card-body"> 
-              <li class="list-group-item"><h6><strong>Age : </strong></h6><%= dog.age %></li>
+              <li class="list-group-item"><h6><strong>Age : <%= dog.age %></strong></h6></li>
               <li class="list-group-item"><div class="cuddliness-hearts d-flex">
             <div class="cuddliness-card d-flex">
               <h6><strong>Cuddliness </strong></h6>
@@ -42,11 +41,19 @@
               <% end %>
             </div>
           </div></li>
-            </ul> 
-                <div class="card-body card-button">
-                  <% path = dog.user == current_user ? edit_dog_path(dog.id) : dog_path(dog.id) %>
-                  <%= link_to path, class: "btn btn-flat" do %>
-                  <i class="<%= dog.user == current_user ? 'fa-solid fa-dog' : 'fa-solid fa-paw' %>"></i></i>
+            </ul>
+                <div class="card-body card-button d-flex justify-content-between">
+                  <% if dog.user == current_user %>
+                    <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
+                      <i class="fa-solid fa-paw"></i> More info
+                    <% end %>
+                    <%= link_to edit_dog_path(dog.id) do %>
+                      <i class="fa-regular fa-pen-to-square"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
+                      <i class="fa-solid fa-paw"></i> More info
+                    <% end %>
                   <% end %>
                 </div>
 
@@ -65,5 +72,4 @@
   </div>
 </div>
 
-
-<a class=" btn btn-primary" href="/dogs/new">Add a dog</a>
+<a class="button" style="position:fixed;bottom:30px;right:30px;margin:0;padding:5px 3px;" href="/dogs/new">Add a dog</a>
