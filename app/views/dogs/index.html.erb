@@ -1,17 +1,18 @@
 <div class="banner-product" style="height: 200px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
-  <h3 class="text-center">All the Dogs looking for temporary homes</h3>
+  <h3 class="text-center">All our dogs looking for temporary homes</h3>
+  <div style=width:30% padding=30px>
+    <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "What kind of dog are you looking for?"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
-<div>
-  <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "What kind of dog are you looking for?"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
+
 
 <div data-controller="checkbox">
   <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="form-check-input" data-action="click->checkbox#fire">
@@ -65,5 +66,4 @@
   </div>
 </div>
 
-
-<a class=" btn btn-primary" href="/dogs/new">Add a dog</a>
+<a class="button" style="position:fixed;bottom:30px;right:30px;margin:0;padding:5px 3px;" href="/dogs/new">Add a dog</a>
