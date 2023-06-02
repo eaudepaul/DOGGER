@@ -62,8 +62,10 @@ dog10 = Dog.new(name: "Pedro", breed: "Border Collie", age: 11, user_id: charlot
 dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685713571/dog_uawebn.jpg", dog10)
 dog.save
 
-dog11 = Dog.new(name: "Sebi", breed: "German Sheperd", age: , user_id: charlotte.id, address: "Alexandrinenstraße 119, 10969 Berlin", cuddliness: rand(1..5), details: "Sebi is smart and attentive. Enjoys playing by the river and going for long walks. His stubbornness can be a challenge, but he is very loyal and will always be by your side.")
-dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685713571/dog_uawebn.jpg", dog11)
+
+dog11 = Dog.new(name: "Sebi", breed: "German Sheperd", age: 5, user_id: charlotte.id, address: "Alexandrinenstraße 119, 10969 Berlin", cuddliness: rand(1..5), details: "Sebi is smart and attentive. Enjoys playing by the river and going for long walks. His stubbornness can be a challenge, but he is very loyal and will always be by your side.")
+dog = create_dog("https://res.cloudinary.com/dbak464dw/image/upload/v1685612378/zf8dlypqjjcrs6vicft0.jpg", dog11)
+
 dog.save
 
 dog12 = Dog.new(name: "Santi", breed: "Mexican Hairless", age: 4, user_id: antonio.id, address: "Johanniterstraße 30, 10961 Berlin", cuddliness: rand(1..5), details: "Santis hairless appearance can be confusing, but underneath his skin the ancient Xoloitzcuintle is a loyal and loving companion. He is very intelligent and enjoys long walks on the beach. Big Bonus: He is hypoallergenic!")
@@ -75,7 +77,7 @@ dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685712238/
 dog.save
 
 dog14 = Dog.new(name: "Zak", breed: "Akita", age: 1, user_id: baran.id, address: "Pallasstraße 9, 10781 Berlin", cuddliness: rand(1..5), details: "Youg Akita puppy Zak is new to the city. His mellow and friendly personality makes him not just a great companion, but also very adaptable to new surroundings and every changing sleeping arrangements. He is a great companion to anyone in need of some joy in their lives.")
-dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685712859/Japanese-Akitainu-puppy-playing-in-the-grass_b1io7y.jpg", dog13)
+dog = create_dog("https://res.cloudinary.com/di0qqolg7/image/upload/v1685712859/Japanese-Akitainu-puppy-playing-in-the-grass_b1io7y.jpg", dog14)
 dog.save
 
 puts "Creating bookings..."
