@@ -12,8 +12,6 @@
   </div>
 </div>
 
-
-
 <div data-controller="checkbox">
   <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="form-check-input" data-action="click->checkbox#fire">
   <label for="vehicle1">Show only my dogs</label>
@@ -43,11 +41,19 @@
               <% end %>
             </div>
           </div></li>
-            </ul> 
-                <div class="card-body card-button">
-                  <% path = dog.user == current_user ? edit_dog_path(dog.id) : dog_path(dog.id) %>
-                  <%= link_to path, class: "btn btn-flat" do %>
-                  <i class="<%= dog.user == current_user ? 'fa-solid fa-dog' : 'fa-solid fa-paw' %>"></i></i>
+            </ul>
+                <div class="card-body card-button d-flex justify-content-between">
+                  <% if dog.user == current_user %>
+                    <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
+                      <i class="fa-solid fa-paw"></i> More info
+                    <% end %>
+                    <%= link_to edit_dog_path(dog.id) do %>
+                      <i class="fa-regular fa-pen-to-square"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
+                      <i class="fa-solid fa-paw"></i> More info
+                    <% end %>
                   <% end %>
                 </div>
 
