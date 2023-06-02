@@ -1,15 +1,17 @@
-<div class="new-dog-form container form-adjust py-5">
-  <div class="row form-bg">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-5 shadow">
-        <h1>Here you can update your dog's profile:</h1>
-        <%= render "form" %>
-<%# only if no bookings, needs implementation %>
-        <h1>Or remove it from the website:</h1>
-  <%= link_to "Remove dog from platform",
-    dog_path(@dog.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-      </div>
+<div class="row form-bg add-dog-form">
+  <div class="col-12 col-md-6 offset-lg-3">
+    <div class="bg-white rounded p-5 shadow">
+        <h1>Update your dog's profile</h1>
+        <%= render "update_form" %>
+        <%# only if no bookings, needs implementation %>
+        <br>
+        <br>
+        <h3><strong>Want to remove your dog?</strong></h3>
+        <p>If you remove your dog from Dogger, other lonely people won't be able to book your dog!</p>
+        <br>
+        <p>Are you sure you want to proceed?</p>
+  <%= link_to "No, keep my dog on Dogger!", dog_path(@dog.id), class: "btn btn-primary text-white mt-2"%>
+  <%= link_to "Remove dog", dog_path(@dog.id), class: "btn btn-danger text-white mt-2", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     </div>
   </div>
 </div>

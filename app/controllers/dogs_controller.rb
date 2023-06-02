@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index]
+
   def index
     if params[:query].present?
       sql_query = <<~SQL
@@ -7,17 +9,24 @@ class DogsController < ApplicationController
         OR dogs.details @@ :query
       SQL
       @dogs = Dog.where(sql_query, query: "%#{params[:query]}%")
-      @dogs = @dogs.geocoded
+      @markers = @dogs.geocoded.map do |dog|
+        {
+          lat: dog.latitude,
+          lng: dog.longitude,
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
+      # @markers = @dogs.geocoded
     else
       @dogs = Dog.all
-      @dogs = Dog.geocoded
-    end
-      @markers = @dogs.map do |dog|
+      @markers = @dogs.geocoded.map do |dog|
         {
           lat: dog.latitude,
           lng: dog.longitude
         }
+      # @dogs = Dog.geocoded
       end
+    end
   end
 
   def new
@@ -43,8 +52,11 @@ class DogsController < ApplicationController
 
   def update
     dog = Dog.find(params[:id])
-    dog.update(dog_params)
-    redirect_to dogs_path
+    if dog.update!(dog_params)
+      redirect_to dog_path(dog)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -59,6 +71,6 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed, :photo_url, :details, :cuddliness, :address)
+    params.require(:dog).permit(:name, :age, :breed, :photo, :details, :cuddliness, :address)
   end
 end
