@@ -12,53 +12,50 @@
   </div>
 </div>
 
-<div data-controller="checkbox">
-  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="form-check-input" data-action="click->checkbox#fire">
-  <label for="vehicle1">Show only my dogs</label>
-  <br>
-
-  <div class="dog-container space-inbetween">
-    <div class="dogs">
+<div style="position:relative" data-controller="checkbox">
+   <div class="checkbox-my-dogs mt-3 mb-2" style="position:absolute; left: 15px">
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="form-check-input" data-action="click->checkbox#fire">
+      <label for="vehicle1">Show only my dogs</label>
+    </div>
+  <div class="dog-container d-flex">
+    <div class="dogs mt-5">
       <% @dogs.each do |dog|%>
-
         <div class="card card-product-dog" data-mine="<%= dog.user == current_user %>" data-checkbox-target="dog" style="width: 18rem;">
-                <% if dog.photo.attached? %>
-                  <%= cl_image_tag dog.photo.key, class: "card-img-top dog-card-img-top" %>
-                <% else %>
-                  <%= cl_image_tag("dog_yxjo1u") %>
-                <% end %>
+          <% if dog.photo.attached? %>
+            <%= cl_image_tag dog.photo.key, class: "card-img-top dog-card-img-top" %>
+          <% else %>
+            <%= cl_image_tag("dog_yxjo1u") %>
+          <% end %>
           <div class="card-body">
               <h5 class="card-title"> <strong><%= dog.name %></strong></h5>
               <h6 class="card-text"><i class="fa-solid fa-dog"></i><strong><%= dog.breed %></strong></h6>
           </div>
-            <ul class="card-body"> 
-              <li class="list-group-item"><h6><strong>Age : <%= dog.age %></strong></h6></li>
-              <li class="list-group-item"><div class="cuddliness-hearts d-flex">
+          <ul class="card-body">
+            <li class="list-group-item"><h6><strong>Age : <%= dog.age %></strong></h6></li>
+            <li class="list-group-item"><div class="cuddliness-hearts d-flex">
             <div class="cuddliness-card d-flex">
               <h6><strong>Cuddliness </strong></h6>
               <% dog.cuddliness.times do |heart| %>
                 <p><i class="fa-solid fa-heart"></i></p>
               <% end %>
             </div>
-          </div></li>
-            </ul>
-                <div class="card-body card-button d-flex justify-content-between">
-                  <% if dog.user == current_user %>
-                    <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
-                      <i class="fa-solid fa-paw"></i> More info
-                    <% end %>
-                    <%= link_to edit_dog_path(dog.id) do %>
-                      <i class="fa-regular fa-pen-to-square"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
-                      <i class="fa-solid fa-paw"></i> More info
-                    <% end %>
-                  <% end %>
-                </div>
-
+            </li>
+          </ul>
+          <div class="card-body card-button d-flex justify-content-between">
+            <% if dog.user == current_user %>
+              <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
+                <i class="fa-solid fa-paw"></i> More info
+              <% end %>
+              <%= link_to edit_dog_path(dog.id) do %>
+                <i class="fa-regular fa-pen-to-square"></i>
+              <% end %>
+            <% else %>
+              <%= link_to dog_path(dog.id), class: "btn btn-flat" do %>
+                <i class="fa-solid fa-paw"></i> More info
+              <% end %>
+            <% end %>
+          </div>
         </div>
-
       <% end %>
     </div>
 

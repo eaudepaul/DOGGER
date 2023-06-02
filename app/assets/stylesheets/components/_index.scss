@@ -31,3 +31,17 @@
   border-color: #5276c0;
   transition: .5s;
 }
+
+.checkbox-my-dogs {
+  padding: 5px 12px;
+  border-radius: 18px;
+  background-color: #c6bcff;
+  color: #45378f;
+  &:hover {
+    background-color: #5276c0;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 2px 2px 2px rgb(172, 169, 169);
+  }
+}
