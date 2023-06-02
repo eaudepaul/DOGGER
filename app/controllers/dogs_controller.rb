@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index]
+
   def index
     if params[:query].present?
       sql_query = <<~SQL
