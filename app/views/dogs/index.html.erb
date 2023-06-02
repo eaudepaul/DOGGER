@@ -17,29 +17,41 @@
   <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="form-check-input" data-action="click->checkbox#fire">
   <label for="vehicle1">Show only my dogs</label>
   <br>
-  <div class="dog-container">
+
+  <div class="dog-container space-inbetween">
     <div class="dogs">
       <% @dogs.each do |dog|%>
-        <div class="card-product justify-content-between m-2" data-mine="<%= dog.user == current_user %>" data-checkbox-target="dog" style="">
-          <div class="e">
-            <% if dog.photo.attached? %>
-              <%= cl_image_tag dog.photo.key %>
-            <% else %>
-              <%= cl_image_tag("dog_yxjo1u") %>
-            <% end %>
 
-            <div class="card-body">
-              <h5 class="card-title"> <%= dog.name %> </h5>
-              <p class="dog-info"> Breed: <%= dog.breed %> </p>
-              <p>Age: <%= dog.age %></p>
-              <% path = dog.user == current_user ? edit_dog_path(dog.id) : dog_path(dog.id) %>
-              <%= link_to path, class: "btn btn-flat" do %>
-              <i class="<%= dog.user == current_user ? 'fa-solid fa-dog' : 'fa-solid fa-paw' %>"></i></i>
+        <div class="card card-product-dog" data-mine="<%= dog.user == current_user %>" data-checkbox-target="dog" style="width: 18rem;">
+                <% if dog.photo.attached? %>
+                  <%= cl_image_tag dog.photo.key, class: "card-img-top dog-card-img-top" %>
+                <% else %>
+                  <%= cl_image_tag("dog_yxjo1u") %>
+                <% end %>
+          <div class="card-body">
+              <h5 class="card-title"> <strong><%= dog.name %></strong></h5>
+              <h6 class="card-text"><i class="fa-solid fa-dog"></i><strong><%= dog.breed %></strong></h6>
+          </div>
+            <ul class="card-body"> 
+              <li class="list-group-item"><h6><strong>Age : </strong></h6><%= dog.age %></li>
+              <li class="list-group-item"><div class="cuddliness-hearts d-flex">
+            <div class="cuddliness-card d-flex">
+              <h6><strong>Cuddliness </strong></h6>
+              <% dog.cuddliness.times do |heart| %>
+                <p><i class="fa-solid fa-heart"></i></p>
               <% end %>
             </div>
+          </div></li>
+            </ul> 
+                <div class="card-body card-button">
+                  <% path = dog.user == current_user ? edit_dog_path(dog.id) : dog_path(dog.id) %>
+                  <%= link_to path, class: "btn btn-flat" do %>
+                  <i class="<%= dog.user == current_user ? 'fa-solid fa-dog' : 'fa-solid fa-paw' %>"></i></i>
+                  <% end %>
+                </div>
 
-          </div>
         </div>
+
       <% end %>
     </div>
 
