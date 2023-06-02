@@ -74,7 +74,7 @@
                 <% elsif booking.status == 'accepted' %>
                 <%= simple_form_for booking, method: :put do |f| %>
                     <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" } %>
-                    <%= f.button :submit, '👎', class: "btn btn-light" %>
+                    <%= f.button :submit, '👎', class: "btn btn-danger" %>
                   <% end %>
                 <% elsif booking.status == 'denied' %>
                   <%= link_to "❌",
